@@ -1,0 +1,12 @@
+# How to push, refer https://docs.docker.com/registry/
+registry:
+  image: registry:2.0
+  environment:
+    - REGISTRY_STORAGE=s3
+    - REGISTRY_STORAGE_S3_REGION=ap-northeast-1
+    - REGISTRY_STORAGE_S3_BUCKET=$S3_REGISTRY_BUCKET
+    - REGISTRY_STORAGE_S3_ROOTDIRECTORY=docker-registry
+    - REGISTRY_STORAGE_S3_ACCESSKEY=$S3_ACCESSKEY
+    - REGISTRY_STORAGE_S3_SECRETKEY=$S3_SECRETKEY
+  ports:
+    - "5000:5000"
