@@ -1,0 +1,15 @@
+mysqld:
+  image: mysql:latest
+  environment:
+    - MYSQL_ROOT_PASSWORD=password1!
+  ports:
+    - "3306:3306"
+apps-container:
+  image: appimage
+  ports:
+    - "9000:9000"
+  environment:
+    DB_USER: root
+    DB_PASSWORD: password1!
+  links:
+     - mysqld:database
